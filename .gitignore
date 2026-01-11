@@ -1,0 +1,27 @@
+# Project-specific ignores
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual environment
+.venv/
+env/
+venv/
+.env
+
+# Editor/IDE state
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit state
+.streamlit/
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
