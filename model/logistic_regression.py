@@ -1,10 +1,29 @@
-import pandas as pd
-from pathlib import Path
+from sklearn.linear_model import LogisticRegression
+from .base_model import BaseModel
+from .data_loader import ProcessData
 
-def get_data():
-    # Locate dataset relative to project root (two levels up from this file)
-    DATA_PATH = Path(__file__).resolve().parents[1] / "dataset" / "loan_data.csv"
+class LibLogisticRegression(BaseModel):
+    def __init__(self, test_size: float = 0.2, random_state: int = 42) -> None:
+        model = LogisticRegression(
+            solver="liblinear",
+            max_iter=1000,
+            random_state=random_state,
+            class_weight="balanced",
+        )
+        super().__init__(model, test_size, random_state, scale=True)
 
-    dataset = pd.read_csv(DATA_PATH)
-    return dataset
+
+if __name__ == "__main__":
+    raw_data = ProcessData.get_data()
+    X, y = ProcessData.preprocess_data(raw_data)
+
+    classifier = LibLogisticRegression()
+    X_train, X_test, y_train, y_test = classifier.split_data(X, y)
+
+    classifier.fit(X_train, y_train)
+    metrics = classifier.evaluate(X_test, y_test)
+
+    print(f"Accuracy: {metrics['accuracy']:.4f}")
+    print(f"ROC AUC: {metrics['roc_auc']:.4f}")
+    print("Classification report:\n", metrics["classification_report"])
 
