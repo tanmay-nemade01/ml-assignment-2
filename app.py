@@ -110,19 +110,42 @@ if test_data is not None:
 
                 # Display metrics
                 st.header("📈 Evaluation Metrics")
+                
+                # Row 1: Accuracy, AUC, Precision
                 col1, col2, col3 = st.columns(3)
-
                 with col1:
                     st.metric("Accuracy", f"{metrics['accuracy']:.4f}")
-
                 with col2:
                     if isinstance(metrics['roc_auc'], float):
-                        st.metric("ROC-AUC Score", f"{metrics['roc_auc']:.4f}")
+                        st.metric("AUC Score", f"{metrics['roc_auc']:.4f}")
                     else:
-                        st.metric("ROC-AUC Score", "N/A")
-
+                        st.metric("AUC Score", "N/A")
                 with col3:
-                    st.metric("Test Samples", len(y_test))
+                    st.metric("Precision", f"{metrics['precision']:.4f}")
+
+                # Row 2: Recall, F1, MCC
+                col4, col5, col6 = st.columns(3)
+                with col4:
+                    st.metric("Recall", f"{metrics['recall']:.4f}")
+                with col5:
+                    st.metric("F1 Score", f"{metrics['f1']:.4f}")
+                with col6:
+                    st.metric("MCC Score", f"{metrics['mcc']:.4f}")
+
+                # Summary table of all metrics
+                st.subheader("📊 Metrics Summary Table")
+                metrics_summary = pd.DataFrame({
+                    'Metric': ['Accuracy', 'AUC', 'Precision', 'Recall', 'F1', 'MCC'],
+                    'Value': [
+                        f"{metrics['accuracy']:.4f}",
+                        f"{metrics['roc_auc']:.4f}" if isinstance(metrics['roc_auc'], float) else "N/A",
+                        f"{metrics['precision']:.4f}",
+                        f"{metrics['recall']:.4f}",
+                        f"{metrics['f1']:.4f}",
+                        f"{metrics['mcc']:.4f}"
+                    ]
+                })
+                st.dataframe(metrics_summary, hide_index=True, use_container_width=True)
 
                 # Classification Report
                 st.header("📋 Classification Report")

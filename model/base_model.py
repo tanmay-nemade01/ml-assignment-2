@@ -2,7 +2,15 @@ from typing import Tuple
 
 import pandas as pd
 from sklearn.base import BaseEstimator, ClassifierMixin
-from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
+from sklearn.metrics import (
+    accuracy_score,
+    classification_report,
+    roc_auc_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    matthews_corrcoef,
+)
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -68,6 +76,10 @@ class BaseModel:
         return {
             "accuracy": accuracy_score(target, predictions),
             "roc_auc": auc,
+            "precision": precision_score(target, predictions, zero_division=0),
+            "recall": recall_score(target, predictions, zero_division=0),
+            "f1": f1_score(target, predictions, zero_division=0),
+            "mcc": matthews_corrcoef(target, predictions),
             "classification_report": classification_report(
                 target, predictions, zero_division=0
             ),
