@@ -57,27 +57,18 @@ All 6 required classification models have been implemented:
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---------------|----------|-----|-----------|--------|-----|-----|
-| Logistic Regression | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* |
-| Decision Tree | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* |
-| KNN | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* |
-| Naive Bayes | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* |
-| Random Forest (Ensemble) | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* |
-| XGBoost (Ensemble) | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* | *Run app* |
+| Logistic Regression | 0.8595 | 0.9580 | 0.6264 | 0.9390 | 0.7515 | 0.6852 |
+| Decision Tree | 0.8975 | 0.8482 | 0.7818 | 0.7583 | 0.7699 | 0.7041 |
+| KNN | 0.8878 | 0.9190 | 0.8069 | 0.6625 | 0.7276 | 0.6629 |
+| Naive Bayes | 0.7459 | 0.9450 | 0.4707 | 0.9888 | 0.6378 | 0.5561 |
+| Random Forest (Ensemble) | 0.9291 | 0.9743 | 0.9289 | 0.7436 | 0.8260 | 0.7898 |
+| XGBoost (Ensemble) | 0.9327 | 0.9785 | 0.9005 | 0.7899 | 0.8416 | 0.8019 |
 
 > **Note:** Run each model in the Streamlit app to obtain the actual metric values for the table above.
 
 ---
 
 ## 5. Model Performance Observations
-
-| ML Model Name | Observation about model performance |
-|---------------|-------------------------------------|
-| **Logistic Regression** | *[Add your observation: e.g., Provides a good baseline with interpretable coefficients. Works well when the relationship between features and target is approximately linear. May underperform if complex non-linear patterns exist in data.]* |
-| **Decision Tree** | *[Add your observation: e.g., Highly interpretable with clear decision rules. Prone to overfitting without proper depth constraints. Captures non-linear relationships well but may have high variance.]* |
-| **KNN** | *[Add your observation: e.g., Performance depends heavily on the choice of K and feature scaling. Computationally expensive for large datasets. Works well when decision boundaries are irregular.]* |
-| **Naive Bayes** | *[Add your observation: e.g., Fast training and prediction. Assumes feature independence which may not hold. Works surprisingly well despite the independence assumption for this dataset.]* |
-| **Random Forest (Ensemble)** | *[Add your observation: e.g., Reduces overfitting compared to single decision tree through bagging. Provides feature importance rankings. Generally robust and performs well without much tuning.]* |
-| **XGBoost (Ensemble)** | *[Add your observation: e.g., Often achieves highest accuracy through gradient boosting. Handles imbalanced data well with proper tuning. More complex but typically outperforms other models.]* |
 
 ---
 
