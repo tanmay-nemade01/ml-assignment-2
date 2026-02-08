@@ -171,6 +171,4 @@ streamlit run app.py
 
 ---
 
-**Author:** [Your Name]  
-**Course:** M.Tech (AIML/DSE) - Machine Learning  
-**Assignment:** Assignment 2
+**Author:** Tanmay Nemade
