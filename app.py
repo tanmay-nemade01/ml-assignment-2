@@ -147,10 +147,6 @@ if test_data is not None:
                 })
                 st.dataframe(metrics_summary, hide_index=True, use_container_width=True)
 
-                # Classification Report
-                st.header("📋 Classification Report")
-                st.text(metrics['classification_report'])
-
                 # Confusion Matrix
                 st.header("🎯 Confusion Matrix")
                 cm = confusion_matrix(y_test, predictions)
