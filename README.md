@@ -1,6 +1,14 @@
-# Loan Approval Prediction - ML Assignment 2
+**Github Repo Link:** https://github.com/tanmay-nemade01/ml-assignment-2/
 
 **Live App:** https://2025aa05004-ml-assignment-2.streamlit.app/
+
+
+
+
+
+
+
+# Loan Approval Prediction - ML Assignment 2
 
 ---
 
